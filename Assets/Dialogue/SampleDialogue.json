@@ -1,0 +1,1 @@
+﻿{"inkVersion":20,"root":[["^Line of dialogue","\n",{"->":"knot1"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"knot1":["^This is knot1.","\n",{"->":"epilogue"},{"#f":1}],"epilogue":["^THis is the end.","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}

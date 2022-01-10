@@ -28,7 +28,7 @@ public class BasicInkExample : MonoBehaviour
     private void StartStory()
     {
         story = new Story(inkJSONAsset.text);
-        if (OnCreateStory != null) OnCreateStory(story);
+        OnCreateStory?.Invoke(story);
         RefreshView();
     }
 
