@@ -1,14 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Ink.Runtime;
 using UnityEngine;
 
+/// <summary>
+///     Starts a dialogue upon being triggered.
+///     Currently, can only be triggered upon mouse click.
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class DialogueStarter : MonoBehaviour
 {
-    private Story _story;
+    // ReSharper disable once InconsistentNaming
     [SerializeField] private TextAsset inkJSONAsset;
+    private Story _story;
 
     private void Awake()
     {
@@ -17,10 +19,12 @@ public class DialogueStarter : MonoBehaviour
 
     private void OnMouseDown()
     {
+        StartDialogue();
+    }
+
+    private void StartDialogue()
+    {
         var REMOVE_THIS = FindObjectOfType<DialogueText>();
-        if (_story.canContinue)
-        {
-            REMOVE_THIS.DisplayText(_story.Continue());
-        }
+        REMOVE_THIS.CurrentStory = _story;
     }
 }

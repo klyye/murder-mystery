@@ -1,18 +1,45 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
+/// <summary>
+///     Displays the dialogue of a given ink story line by line.
+/// </summary>
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class DialogueText : MonoBehaviour
 {
-    private TextMeshProUGUI _text;
-
     /// <summary>
     ///     The number of seconds between each character being displayed.
     /// </summary>
     [SerializeField] private float textDelay;
+
+    /// <summary>
+    ///     Pressing this button skips to the next line of dialogue.
+    /// </summary>
+    [FormerlySerializedAs("_advanceKey")] [SerializeField]
+    private KeyCode advanceKey;
+
+    private Story _currentStory;
+
+    private TextMeshProUGUI _text;
+
+    /// <summary>
+    ///     The coroutine that is currently typing text onto the screen.
+    /// </summary>
+    private IEnumerator _typeCoroutine;
+
+    public Story CurrentStory
+    {
+        get => _currentStory;
+        set
+        {
+            _currentStory = value;
+            if (_currentStory.canContinue)
+                DisplayLine(CurrentStory.Continue());
+        }
+    }
 
     private void Awake()
     {
@@ -20,15 +47,23 @@ public class DialogueText : MonoBehaviour
         _text.text = "";
     }
 
-    public void DisplayText(string text)
+    private void Update()
     {
-        _text.text = "";
-        StartCoroutine(TypeText(text));
+        if (Input.GetKeyDown(advanceKey) && CurrentStory.canContinue) DisplayLine(CurrentStory.Continue());
     }
 
-    private IEnumerator TypeText(string text)
+    private void DisplayLine(string line)
     {
-        foreach (var c in text)
+        if (_typeCoroutine != null)
+            StopCoroutine(_typeCoroutine);
+        _typeCoroutine = TypeText(line);
+        StartCoroutine(_typeCoroutine);
+    }
+
+    private IEnumerator TypeText(string line)
+    {
+        _text.text = "";
+        foreach (var c in line)
         {
             _text.text += c;
             yield return new WaitForSeconds(textDelay);
