@@ -1,1 +1,937 @@
-﻿{"inkVersion":20,"root":[["^LONDON, 1872","\n","^Residence of Monsieur Phileas Fogg.","\n",{"->":"london"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"london":[["^Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fangled steam-carriage, besides!","\n","^\"Passepartout,\" said he. \"We are going around the world!\"","\n",["ev",{"^->":"london.0.4.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str","/ev",{"*":".^.^.c-0","flg":2},{"s":["^\"Around the world, Monsieur?\"",{"->":"$r","var":true},null]}],"ev","str","^Nod curtly.","/str","/ev",{"*":".^.c-1","flg":4},{"c-0":["ev",{"^->":"london.0.c-0.$r2"},"/ev",{"temp=":"$r"},{"->":".^.^.4.s"},[{"#n":"$r2"}],"\n","^I was utterly astonished.","\n",{"->":"astonished"},{"#f":5}],"c-1":["^ ",{"->":"nod"},"\n",{"#f":5}]}],{"#f":1}],"astonished":[["^\"You are in jest!\" I told him in dignified affront. \"You make mock of me, Monsieur.\"","\n","^\"I am quite serious.\"","\n",["ev",{"^->":"astonished.0.4.$r1"},{"temp=":"$r"},"str",{"->":".^.s"},[{"#n":"$r1"}],"/str","/ev",{"*":".^.^.c-0","flg":2},{"s":["^\"But of course\"",{"->":"$r","var":true},null]}],{"c-0":["ev",{"^->":"astonished.0.c-0.$r2"},"/ev",{"temp=":"$r"},{"->":".^.^.4.s"},[{"#n":"$r2"}],"\n",{"->":"ending"},{"#f":5}]}],{"#f":1}],"nod":["^I nodded curtly, not believing a word of it.","\n",{"->":"ending"},{"#f":1}],"ending":["^\"We shall circumnavigate the globe within eighty days.\" He was quite calm as he proposed this wild scheme. \"We leave for Paris on the 8:25. In an hour.\"","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}
+﻿{
+  "inkVersion": 20,
+  "root": [
+    [
+      "^LONDON, 1872",
+      "\n",
+      "^Residence of Monsieur Phileas Fogg.",
+      "\n",
+      {
+        "->": "london"
+      },
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "london": [
+        [
+          "^Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fangled steam-carriage, besides!",
+          "\n",
+          "^\"Passepartout,\" said he. \"We are going around the world!\"",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "london.0.4.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^\"Around the world, Monsieur?\"",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          "ev",
+          "str",
+          "^Nod curtly.",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 4
+          },
+          [
+            "ev",
+            {
+              "^->": "london.0.11.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-2",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Another choice ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.12.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-3",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Yet another choice ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.13.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-4",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^So many choices ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.14.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-5",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^How many choices does this program support? ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.15.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-6",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^More nodding ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.16.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-7",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Nod ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          "ev",
+          "str",
+          "^1Nod curtly.",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 4
+          },
+          [
+            "ev",
+            {
+              "^->": "london.0.23.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-9",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^A1nother choice ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.24.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-10",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^Y1et another choice ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.25.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-11",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^S1o many choices ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.26.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-12",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^H1ow many choices does this program support? ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.27.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-13",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^M1ore nodding ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          [
+            "ev",
+            {
+              "^->": "london.0.28.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-14",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^N1od ",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "london.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.4.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              "^I was utterly astonished.",
+              "\n",
+              {
+                "->": "astonished"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "^ ",
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "ev",
+              {
+                "^->": "london.0.c-2.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.11.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "ev",
+              {
+                "^->": "london.0.c-3.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.12.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "ev",
+              {
+                "^->": "london.0.c-4.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.13.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "ev",
+              {
+                "^->": "london.0.c-5.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.14.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "ev",
+              {
+                "^->": "london.0.c-6.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.15.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "ev",
+              {
+                "^->": "london.0.c-7.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.16.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "^ ",
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-9": [
+              "ev",
+              {
+                "^->": "london.0.c-9.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.23.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-10": [
+              "ev",
+              {
+                "^->": "london.0.c-10.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.24.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-11": [
+              "ev",
+              {
+                "^->": "london.0.c-11.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.25.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-12": [
+              "ev",
+              {
+                "^->": "london.0.c-12.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.26.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-13": [
+              "ev",
+              {
+                "^->": "london.0.c-13.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.27.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ],
+            "c-14": [
+              "ev",
+              {
+                "^->": "london.0.c-14.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.28.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              {
+                "->": "nod"
+              },
+              "\n",
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "astonished": [
+        [
+          "^\"You are in jest!\" I told him in dignified affront. \"You make mock of me, Monsieur.\"",
+          "\n",
+          "^\"I am quite serious.\"",
+          "\n",
+          [
+            "ev",
+            {
+              "^->": "astonished.0.4.$r1"
+            },
+            {
+              "temp=": "$r"
+            },
+            "str",
+            {
+              "->": ".^.s"
+            },
+            [
+              {
+                "#n": "$r1"
+              }
+            ],
+            "/str",
+            "/ev",
+            {
+              "*": ".^.^.c-0",
+              "flg": 2
+            },
+            {
+              "s": [
+                "^\"But of course\"",
+                {
+                  "->": "$r",
+                  "var": true
+                },
+                null
+              ]
+            }
+          ],
+          {
+            "c-0": [
+              "ev",
+              {
+                "^->": "astonished.0.c-0.$r2"
+              },
+              "/ev",
+              {
+                "temp=": "$r"
+              },
+              {
+                "->": ".^.^.4.s"
+              },
+              [
+                {
+                  "#n": "$r2"
+                }
+              ],
+              "\n",
+              {
+                "->": "ending"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "nod": [
+        "^I nodded curtly, not believing a word of it.",
+        "\n",
+        {
+          "->": "ending"
+        },
+        {
+          "#f": 1
+        }
+      ],
+      "ending": [
+        "^\"We shall circumnavigate the globe within eighty days.\" He was quite calm as he proposed this wild scheme. \"We leave for Paris on the 8:25. In an hour.\"",
+        "\n",
+        "end",
+        {
+          "#f": 1
+        }
+      ],
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

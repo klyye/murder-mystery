@@ -10,7 +10,19 @@ Monsieur Phileas Fogg returned home early from the Reform Club, and in a new-fan
     I was utterly astonished. 
     -> astonished
 + [Nod curtly.] -> nod
-
++ Another choice -> nod
++ Yet another choice -> nod
++ So many choices -> nod
++ How many choices does this program support? -> nod
++ More nodding -> nod
++ Nod -> nod
++ [1Nod curtly.] -> nod
++ A1nother choice -> nod
++ Y1et another choice -> nod
++ S1o many choices -> nod
++ H1ow many choices does this program support? -> nod
++ M1ore nodding -> nod
++ N1od -> nod
 
 === astonished ===
 "You are in jest!" I told him in dignified affront. "You make mock of me, Monsieur."
