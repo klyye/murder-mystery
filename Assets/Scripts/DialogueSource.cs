@@ -4,9 +4,10 @@ using UnityEngine;
 /// <summary>
 ///     Starts a dialogue upon being triggered.
 ///     Currently, can only be triggered upon mouse click.
+///     TODO: Move story logic into here
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-public class DialogueStarter : MonoBehaviour
+public class DialogueSource : MonoBehaviour
 {
     // ReSharper disable once InconsistentNaming
     [SerializeField] private TextAsset inkJSONAsset;

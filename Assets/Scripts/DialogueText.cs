@@ -18,7 +18,7 @@ public class DialogueText : MonoBehaviour
     /// <summary>
     ///     Pressing this button skips to the next line of dialogue.
     /// </summary>
-    [FormerlySerializedAs("_advanceKey")] [SerializeField]
+    [SerializeField]
     private KeyCode advanceKey;
 
     private Story _currentStory;
