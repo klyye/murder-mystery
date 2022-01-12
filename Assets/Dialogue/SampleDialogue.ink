@@ -9,8 +9,8 @@ This is knot1.
 -> epilogue
 
 == knot2
-This is knot2.
--> epilogue
+This is knot2. There is no more after this. I am going to type a very long line of text to test the limitations of this
+-> END
 
 == epilogue
 THis is the end.

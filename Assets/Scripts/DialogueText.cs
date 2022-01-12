@@ -7,7 +7,7 @@ using manager = DialogueManager;
 ///     Displays dialogue line by line.
 /// </summary>
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class DialogueText : Singleton<DialogueText>
+public class DialogueText : MonoBehaviour
 {
     /// <summary>
     ///     The number of seconds between each character being displayed.
@@ -26,7 +26,7 @@ public class DialogueText : Singleton<DialogueText>
     /// </summary>
     private IEnumerator _typeCoroutine;
 
-    protected override void Awake()
+    private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
         _text.text = "";

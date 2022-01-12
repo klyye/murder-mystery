@@ -5,14 +5,18 @@ using UnityEngine.UI;
 using manager = DialogueManager;
 
 [RequireComponent(typeof(LayoutGroup))]
-public class DialogueButtons : Singleton<DialogueButtons>
+public class DialogueButtons : MonoBehaviour
 {
     [SerializeField] private Button buttonPrefab;
 
     public void CreateButton(Choice choice)
     {
         var button = Instantiate(buttonPrefab, transform);
-        button.onClick.AddListener(delegate { manager.inst.Choose(choice); });
+        button.onClick.AddListener(delegate
+        {
+            manager.inst.Choose(choice);
+            manager.inst.NextLine();
+        });
         button.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }
 
