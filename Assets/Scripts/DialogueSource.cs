@@ -22,5 +22,4 @@ public class DialogueSource : MonoBehaviour
     {
         manager.inst.story = _story;
     }
-
 }

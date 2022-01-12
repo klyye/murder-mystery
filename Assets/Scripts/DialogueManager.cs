@@ -1,5 +1,4 @@
 using Ink.Runtime;
-using UnityEngine;
 
 /// <summary>
 ///     The interface between DialogueSource and DialogueText. Dialogue sources send Stories to the manager,
@@ -12,14 +11,13 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public Story story
     {
-        get => _story;
         set
         {
             _story = value;
             _dialogueText.DisplayLine(NextLine());
         }
     }
-    
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -28,6 +26,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public string NextLine()
     {
+        if (_story == null) return "";
         return _story.canContinue ? _story.Continue() : _story.currentText;
     }
 }
