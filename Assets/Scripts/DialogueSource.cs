@@ -1,10 +1,10 @@
 using Ink.Runtime;
 using UnityEngine;
+using manager = DialogueManager;
 
 /// <summary>
 ///     Starts a dialogue upon being triggered.
 ///     Currently, can only be triggered upon mouse click.
-///     TODO: Move story logic into here
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class DialogueSource : MonoBehaviour
@@ -20,12 +20,7 @@ public class DialogueSource : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartDialogue();
+        manager.inst.story = _story;
     }
 
-    private void StartDialogue()
-    {
-        var REMOVE_THIS = FindObjectOfType<DialogueText>();
-        REMOVE_THIS.CurrentStory = _story;
-    }
 }

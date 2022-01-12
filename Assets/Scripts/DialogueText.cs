@@ -1,11 +1,10 @@
 using System.Collections;
-using Ink.Runtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+using manager = DialogueManager;
 
 /// <summary>
-///     Displays the dialogue of a given ink story line by line.
+///     Displays dialogue line by line.
 /// </summary>
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class DialogueText : MonoBehaviour
@@ -18,10 +17,7 @@ public class DialogueText : MonoBehaviour
     /// <summary>
     ///     Pressing this button skips to the next line of dialogue.
     /// </summary>
-    [SerializeField]
-    private KeyCode advanceKey;
-
-    private Story _currentStory;
+    [SerializeField] private KeyCode advanceKey;
 
     private TextMeshProUGUI _text;
 
@@ -29,17 +25,6 @@ public class DialogueText : MonoBehaviour
     ///     The coroutine that is currently typing text onto the screen.
     /// </summary>
     private IEnumerator _typeCoroutine;
-
-    public Story CurrentStory
-    {
-        get => _currentStory;
-        set
-        {
-            _currentStory = value;
-            if (_currentStory.canContinue)
-                DisplayLine(CurrentStory.Continue());
-        }
-    }
 
     private void Awake()
     {
@@ -49,10 +34,10 @@ public class DialogueText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(advanceKey) && CurrentStory.canContinue) DisplayLine(CurrentStory.Continue());
+        if (Input.GetKeyDown(advanceKey)) DisplayLine(manager.inst.NextLine());
     }
 
-    private void DisplayLine(string line)
+    public void DisplayLine(string line)
     {
         if (_typeCoroutine != null)
             StopCoroutine(_typeCoroutine);
