@@ -2,13 +2,14 @@ using Ink.Runtime;
 
 /// <summary>
 ///     Sends lines of data to be displayed by DialogueText and DialogueButtons when prompted by DialogueTrigger.
+///     It is the job of this class to interface with the UI elements.
 /// </summary>
-public class DialogueSource
+public class DialogueDisplay
 {
     private readonly DialogueButtons _buttons;
     private readonly DialogueText _text;
 
-    public DialogueSource(DialogueButtons buttons, DialogueText text, Story story)
+    public DialogueDisplay(DialogueButtons buttons, DialogueText text, Story story)
     {
         _text = text;
         _buttons = buttons;

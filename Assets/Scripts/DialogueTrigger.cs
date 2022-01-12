@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 ///     Triggers dialogue to start or continue based on user input.
 ///     Currently only starts dialogue upon being clicked.
+///     All dialogue related user input should be handled by this class only.
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class DialogueTrigger : MonoBehaviour
@@ -16,8 +17,9 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     [SerializeField] private KeyCode advanceKey;
 
-    private DialogueSource _source;
     private Story _story;
+
+    private DialogueDisplay display;
 
     private void Awake()
     {
@@ -30,16 +32,16 @@ public class DialogueTrigger : MonoBehaviour
          they can find in the scene. */
         var text = FindObjectOfType<DialogueText>();
         var buttons = FindObjectOfType<DialogueButtons>();
-        _source = new DialogueSource(buttons, text, _story);
+        display = new DialogueDisplay(buttons, text, _story);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(advanceKey)) _source.DisplayNextLine();
+        if (Input.GetKeyDown(advanceKey)) display.DisplayNextLine();
     }
 
     private void OnMouseDown()
     {
-        _source.DisplayNextLine();
+        display.DisplayNextLine();
     }
 }

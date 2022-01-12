@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 ///     Displays dialogue line by line.
+///     This is a UI class and should not contain any dialogue logic.
 /// </summary>
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class DialogueText : MonoBehaviour
