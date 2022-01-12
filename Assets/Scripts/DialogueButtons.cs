@@ -2,20 +2,22 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using manager = DialogueManager;
 
+/// <summary>
+///     Creates and destroys buttons used for dialogue choices.
+/// </summary>
 [RequireComponent(typeof(LayoutGroup))]
 public class DialogueButtons : MonoBehaviour
 {
     [SerializeField] private Button buttonPrefab;
 
-    public void CreateButton(Choice choice)
+    public void CreateButton(DialogueSource source, Choice choice)
     {
         var button = Instantiate(buttonPrefab, transform);
         button.onClick.AddListener(delegate
         {
-            manager.inst.Choose(choice);
-            manager.inst.NextLine();
+            source.story.ChooseChoiceIndex(choice.index);
+            source.DisplayNextLine();
         });
         button.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }

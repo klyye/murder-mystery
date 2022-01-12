@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using manager = DialogueManager;
 
 /// <summary>
 ///     Displays dialogue line by line.
@@ -14,11 +13,6 @@ public class DialogueText : MonoBehaviour
     /// </summary>
     [SerializeField] private float textDelay;
 
-    /// <summary>
-    ///     Pressing this button skips to the next line of dialogue.
-    /// </summary>
-    [SerializeField] private KeyCode advanceKey;
-
     private TextMeshProUGUI _text;
 
     /// <summary>
@@ -30,11 +24,6 @@ public class DialogueText : MonoBehaviour
     {
         _text = GetComponent<TextMeshProUGUI>();
         _text.text = "";
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(advanceKey)) DisplayLine(manager.inst.NextLine());
     }
 
     public void DisplayLine(string line)

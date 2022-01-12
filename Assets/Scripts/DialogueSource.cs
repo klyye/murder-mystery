@@ -1,25 +1,29 @@
 using Ink.Runtime;
-using UnityEngine;
-using manager = DialogueManager;
 
 /// <summary>
-///     Starts a dialogue upon being triggered.
-///     Currently, can only be triggered upon mouse click.
+///     Sends lines of data to be displayed by DialogueText and DialogueButtons when prompted by DialogueTrigger.
 /// </summary>
-[RequireComponent(typeof(Collider2D))]
-public class DialogueSource : MonoBehaviour
+public class DialogueSource
 {
-    // ReSharper disable once InconsistentNaming
-    [SerializeField] private TextAsset inkJSONAsset;
-    private Story _story;
+    private readonly DialogueButtons _buttons;
+    private readonly DialogueText _text;
 
-    private void Awake()
+    public DialogueSource(DialogueButtons buttons, DialogueText text, Story story)
     {
-        _story = new Story(inkJSONAsset.text);
+        _text = text;
+        _buttons = buttons;
+        this.story = story;
+        DisplayNextLine();
     }
 
-    private void OnMouseDown()
+    public Story story { get; }
+
+    public void DisplayNextLine()
     {
-        manager.inst.story = _story;
+        if (story == null) return;
+        _buttons.ClearButtons();
+        var output = story.canContinue ? story.Continue() : story.currentText;
+        foreach (var choice in story.currentChoices) _buttons.CreateButton(this, choice);
+        _text.DisplayLine(output);
     }
 }
