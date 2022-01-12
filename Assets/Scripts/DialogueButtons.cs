@@ -1,4 +1,5 @@
 using Ink.Runtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using manager = DialogueManager;
@@ -10,8 +11,9 @@ public class DialogueButtons : Singleton<DialogueButtons>
 
     public void CreateButton(Choice choice)
     {
-        var button = Instantiate(buttonPrefab);
+        var button = Instantiate(buttonPrefab, transform);
         button.onClick.AddListener(delegate { manager.inst.Choose(choice); });
+        button.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }
 
     public void ClearButtons()
