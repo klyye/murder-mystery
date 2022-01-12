@@ -30,8 +30,9 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         if (_story == null) return "";
         _dialogueButtons.ClearButtons();
+        var output = _story.canContinue ? _story.Continue() : _story.currentText;
         foreach (var choice in _story.currentChoices) _dialogueButtons.CreateButton(choice);
-        return _story.canContinue ? _story.Continue() : _story.currentText;
+        return output;
     }
 
     public void Choose(Choice choice)
