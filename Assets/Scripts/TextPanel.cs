@@ -13,42 +13,49 @@ public class TextPanel : MonoBehaviour
     /// <summary>
     ///     The number of seconds between each character being displayed.
     /// </summary>
-    [SerializeField] private float textDelay;
-
-    private TextMeshProUGUI _text;
+    [HideInInspector] public float textDelay;
 
     /// <summary>
-    ///     The coroutine that is currently typing text onto the screen.
+    ///     The default number of seconds between each character being displayed.
     /// </summary>
-    private IEnumerator _typeCoroutine;
+    [SerializeField] private float defaultTextDelay;
+
+    /// <summary>
+    ///     Whether or text is still being typed character by character onto the screen.
+    /// </summary>
+    [HideInInspector] public bool currentlyTyping;
+
+    private TextMeshProUGUI _text;
 
     private void Awake()
     {
         _text = GetComponentInChildren<TextMeshProUGUI>();
+        textDelay = defaultTextDelay;
         _text.text = "";
+        currentlyTyping = false;
     }
 
+    /// <summary>
+    ///     Displays the given string in the panel.
+    /// </summary>
+    /// <param name="line">The string to display.</param>
     public void DisplayLine(string line)
     {
-        if (_typeCoroutine != null)
-            StopCoroutine(_typeCoroutine);
-        gameObject.SetActive(true);
-        _typeCoroutine = TypeText(line);
-        StartCoroutine(_typeCoroutine);
-    }
-
-    public void Hide()
-    {
-        gameObject.SetActive(false);
+        StartCoroutine(TypeText(line));
     }
 
     private IEnumerator TypeText(string line)
     {
+        currentlyTyping = true;
         _text.text = "";
+        textDelay = defaultTextDelay;
+        gameObject.SetActive(true);
         foreach (var c in line)
         {
             _text.text += c;
             yield return new WaitForSeconds(textDelay);
         }
+
+        currentlyTyping = false;
     }
 }

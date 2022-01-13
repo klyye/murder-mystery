@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7877960034739974322, guid: f20ac0d03f48ff040a04fa8ab0263575, type: 3}
+      propertyPath: defaultTextDelay
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7877960034739974326, guid: f20ac0d03f48ff040a04fa8ab0263575, type: 3}
       propertyPath: m_Name
       value: DialoguePanel

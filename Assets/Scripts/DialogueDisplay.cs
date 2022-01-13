@@ -3,6 +3,8 @@ using Ink.Runtime;
 /// <summary>
 ///     Sends lines of data to be displayed by DialogueText and DialogueButtons when prompted by DialogueTrigger.
 ///     It is the job of this class to interface with the UI elements.
+///     TODO: detect which character is talking. should probably make a new wrapper class for Story
+///     TODO: https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md#engine-usage-and-philosophy
 /// </summary>
 public class DialogueDisplay
 {
@@ -23,7 +25,7 @@ public class DialogueDisplay
     ///     Should be triggered upon a choice button being pressed.
     /// </summary>
     /// <param name="choice">The choice that is selected.</param>
-    public void OnChoiceSelected(Choice choice)
+    private void OnChoiceSelected(Choice choice)
     {
         _story.ChooseChoiceIndex(choice.index);
         DisplayNextLine();
@@ -37,15 +39,17 @@ public class DialogueDisplay
     {
         if (_story == null || !_story.canContinue && _story.currentChoices.Count == 0)
         {
-            _panel.Hide();
+            _panel.gameObject.SetActive(false);
             return;
         }
 
         _buttons.ClearButtons();
-        var output = _story.canContinue ? _story.Continue() : _story.currentText;
-
+        var output = _story.canContinue && !_panel.currentlyTyping ? _story.Continue() : _story.currentText;
         foreach (var choice in _story.currentChoices)
             _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
-        _panel.DisplayLine(output);
+        if (_panel.currentlyTyping)
+            _panel.textDelay = 0;
+        else
+            _panel.DisplayLine(output);
     }
 }

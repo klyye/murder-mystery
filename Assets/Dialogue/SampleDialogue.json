@@ -66,28 +66,73 @@
     "done",
     {
       "mia": [
-        "^Oh, h-hiya, Chief. Whew, I'm glad I made it on time.",
-        "\n",
-        "^Well, I have to say Phoenix, I'm impressed! Not everyone takes on a murder trial right off the bat like this. It says a  lot about you ...and your client as well.",
-        "\n",
-        "^Um... thanks. Actually, it's because I owe him a favor.",
-        "\n",
-        "^A favor? You mean, you knew the defendant before this case?",
-        "\n",
-        "^Yes. Actually, I kind of owe my current job to him. He's one of the reasons I became an attorney.",
-        "\n",
-        "^Well, that's news to me!",
-        "\n",
-        "^I want to help him out any way I can! I just... really want to help him. I owe him that much.",
-        "\n",
-        "^It's over! My life, everything, it's all over!",
-        "\n",
-        "^...",
-        "\n",
-        "^Isn't that your client screaming over there?",
-        "\n",
-        "^Yeah... that's him.",
-        "\n",
+        [
+          "^Oh, h-hiya, Chief. Whew, I'm glad I made it on time.",
+          "\n",
+          "^Well, I have to say Phoenix, I'm impressed! Not everyone takes on a murder trial right off the bat like this. It says a  lot about you ...and your client as well.",
+          "\n",
+          "^Um... thanks. Actually, it's because I owe him a favor.",
+          "\n",
+          "^A favor? You mean, you knew the defendant before this case?",
+          "\n",
+          "^Yes. Actually, I kind of owe my current job to him. He's one of the reasons I became an attorney.",
+          "\n",
+          "^Well, that's news to me!",
+          "\n",
+          "^I want to help him out any way I can! I just... really want to help him. I owe him that much.",
+          "\n",
+          "^It's over! My life, everything, it's all over!",
+          "\n",
+          "^...",
+          "\n",
+          "^Isn't that your client screaming over there?",
+          "\n",
+          "^Yeah... that's him.",
+          "\n",
+          "ev",
+          "str",
+          "^Greet Larry",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 4
+          },
+          "ev",
+          "str",
+          "^Go to trial",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 4
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "larry"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "trial"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        {
+          "#f": 1
+        }
+      ],
+      "larry": [
         "^Death! Despair! Ohhhhh! I'm gonna do it, I'm gonna die!!!",
         "\n",
         "^It sounds like he wants to die...",
@@ -106,11 +151,11 @@
         "\n",
         "^(Hmm... The person responsible for your girlfriend's death? The newspapers say it was you...)",
         "\n",
-        "^I should head to the trial.",
-        "\n",
         {
           "->": "trial"
         },
+        "^My name is Phoenix Wright.",
+        "\n",
         {
           "#f": 1
         }

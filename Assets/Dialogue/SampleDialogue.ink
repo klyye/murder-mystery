@@ -33,7 +33,12 @@ It's over! My life, everything, it's all over!
 Isn't that your client screaming over there?
 
 Yeah... that's him.
++[Greet Larry]
+    -> larry
++[Go to trial]
+    -> trial
 
+== larry
 Death! Despair! Ohhhhh! I'm gonna do it, I'm gonna die!!!
 
 It sounds like he wants to die...
@@ -51,9 +56,9 @@ What!? What's wrong, Larry?
 Oh, it's all over... I... I'm finished. Finished! I can't live in a world without her! I can't! Who.. . who took her away from me, Nick? Who did this!? Aww, Nick, ya gotta tell me! Who took my baby away!?
 
 (Hmm... The person responsible for your girlfriend's death? The newspapers say it was you...)
-
-I should head to the trial.
 -> trial
+
+My name is Phoenix Wright.
 
 == trial
 Welp, time to head to the courtroom. I wonder what's in store for me?
