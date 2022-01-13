@@ -21,7 +21,10 @@ public class DialogueDisplay
 
     public void DisplayNextLine()
     {
-        if (story == null) return;
+        if (story == null || !story.canContinue && story.currentChoices.Count == 0)
+        {
+        }
+
         _buttons.ClearButtons();
         var output = story.canContinue ? story.Continue() : story.currentText;
         foreach (var choice in story.currentChoices) _buttons.CreateButton(this, choice);

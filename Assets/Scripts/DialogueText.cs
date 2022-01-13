@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 ///     Displays dialogue line by line.
 ///     This is a UI class and should not contain any dialogue logic.
+///     TODO: change into panel type so it can be hidden and shown
 /// </summary>
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class DialogueText : MonoBehaviour
