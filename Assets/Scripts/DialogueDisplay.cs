@@ -7,12 +7,12 @@ using Ink.Runtime;
 public class DialogueDisplay
 {
     private readonly ButtonLayout _buttons;
+    private readonly TextPanel _panel;
     private readonly Story _story;
-    private readonly TextPanel panel;
 
     public DialogueDisplay(ButtonLayout buttons, TextPanel panel, Story story)
     {
-        this.panel = panel;
+        _panel = panel;
         _buttons = buttons;
         _story = story;
         DisplayNextLine();
@@ -37,14 +37,15 @@ public class DialogueDisplay
     {
         if (_story == null || !_story.canContinue && _story.currentChoices.Count == 0)
         {
-            panel.Hide();
+            _panel.Hide();
             return;
         }
 
         _buttons.ClearButtons();
         var output = _story.canContinue ? _story.Continue() : _story.currentText;
+
         foreach (var choice in _story.currentChoices)
             _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
-        panel.DisplayLine(output);
+        _panel.DisplayLine(output);
     }
 }

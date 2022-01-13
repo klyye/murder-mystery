@@ -15,11 +15,6 @@ public class TextPanel : MonoBehaviour
     /// </summary>
     [SerializeField] private float textDelay;
 
-    /// <summary>
-    ///     The number of lines of text that can be displayed in one text panel.
-    /// </summary>
-    [HideInInspector] public int linesPerPanel;
-
     private TextMeshProUGUI _text;
 
     /// <summary>

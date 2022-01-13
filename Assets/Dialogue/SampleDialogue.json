@@ -8,17 +8,85 @@
       "\n",
       "^Defendant Lobby No. 2",
       "\n",
-      [
-        "done",
-        {
-          "#f": 5,
-          "#n": "g-0"
-        }
-      ],
-      null
+      "^Boy am I nervous!",
+      "\n",
+      "^Wright!",
+      "\n",
+      "ev",
+      "str",
+      "^Greet Mia",
+      "/str",
+      "/ev",
+      {
+        "*": "0.c-0",
+        "flg": 4
+      },
+      "ev",
+      "str",
+      "^Go to trial",
+      "/str",
+      "/ev",
+      {
+        "*": "0.c-1",
+        "flg": 4
+      },
+      {
+        "c-0": [
+          "\n",
+          {
+            "->": "mia"
+          },
+          {
+            "->": "0.g-0"
+          },
+          {
+            "#f": 5
+          }
+        ],
+        "c-1": [
+          "\n",
+          {
+            "->": "trial"
+          },
+          {
+            "->": "0.g-0"
+          },
+          {
+            "#f": 5
+          }
+        ],
+        "g-0": [
+          "done",
+          {
+            "#f": 5
+          }
+        ]
+      }
     ],
     "done",
     {
+      "mia": [
+        "^Oh, h-hiya, Chief. Whew, I'm glad I made it on time.",
+        "\n",
+        "^Well, I have to say Phoenix, I'm impressed! Not everyone takes on a murder trial right off the bat like this. It says a  lot about you ...and your client as well.",
+        "\n",
+        "^Um... thanks. I should head to the trial.",
+        "\n",
+        {
+          "->": "trial"
+        },
+        {
+          "#f": 1
+        }
+      ],
+      "trial": [
+        "^Welp, time to head to the courtroom. I wonder what's in store for me?",
+        "\n",
+        "end",
+        {
+          "#f": 1
+        }
+      ],
       "#f": 1
     }
   ],
