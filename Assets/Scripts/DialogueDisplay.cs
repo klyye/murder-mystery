@@ -7,27 +7,35 @@ using Ink.Runtime;
 public class DialogueDisplay
 {
     private readonly DialogueButtons _buttons;
-    private readonly DialogueText _text;
+    private readonly Story _story;
+    private readonly DialoguePanel panel;
 
-    public DialogueDisplay(DialogueButtons buttons, DialogueText text, Story story)
+    public DialogueDisplay(DialogueButtons buttons, DialoguePanel panel, Story story)
     {
-        _text = text;
+        this.panel = panel;
         _buttons = buttons;
-        this.story = story;
+        _story = story;
         DisplayNextLine();
     }
 
-    public Story story { get; }
+    public void OnChoiceSelected(Choice choice)
+    {
+        _story.ChooseChoiceIndex(choice.index);
+        DisplayNextLine();
+    }
+
 
     public void DisplayNextLine()
     {
-        if (story == null || !story.canContinue && story.currentChoices.Count == 0)
+        if (_story == null || !_story.canContinue && _story.currentChoices.Count == 0)
         {
+            panel.Hide();
+            return;
         }
 
         _buttons.ClearButtons();
-        var output = story.canContinue ? story.Continue() : story.currentText;
-        foreach (var choice in story.currentChoices) _buttons.CreateButton(this, choice);
-        _text.DisplayLine(output);
+        var output = _story.canContinue ? _story.Continue() : _story.currentText;
+        foreach (var choice in _story.currentChoices) _buttons.CreateButton(this, choice);
+        panel.DisplayLine(output);
     }
 }

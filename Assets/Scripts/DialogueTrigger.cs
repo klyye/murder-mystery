@@ -30,7 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         /* Replace FindObjectOfType if you want triggers to link to specific UI elements rather than just the first one
          they can find in the scene. */
-        var text = FindObjectOfType<DialogueText>();
+        var text = FindObjectOfType<DialoguePanel>();
         var buttons = FindObjectOfType<DialogueButtons>();
         display = new DialogueDisplay(buttons, text, _story);
     }

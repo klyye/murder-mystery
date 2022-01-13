@@ -15,11 +15,7 @@ public class DialogueButtons : MonoBehaviour
     public void CreateButton(DialogueDisplay display, Choice choice)
     {
         var button = Instantiate(buttonPrefab, transform);
-        button.onClick.AddListener(delegate
-        {
-            display.story.ChooseChoiceIndex(choice.index);
-            display.DisplayNextLine();
-        });
+        button.onClick.AddListener(delegate { display.OnChoiceSelected(choice); });
         button.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }
 

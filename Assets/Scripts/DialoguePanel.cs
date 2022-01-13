@@ -1,14 +1,14 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 ///     Displays dialogue line by line.
 ///     This is a UI class and should not contain any dialogue logic.
-///     TODO: change into panel type so it can be hidden and shown
 /// </summary>
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class DialogueText : MonoBehaviour
+[RequireComponent(typeof(Image))]
+public class DialoguePanel : MonoBehaviour
 {
     /// <summary>
     ///     The number of seconds between each character being displayed.
@@ -24,7 +24,7 @@ public class DialogueText : MonoBehaviour
 
     private void Awake()
     {
-        _text = GetComponent<TextMeshProUGUI>();
+        _text = GetComponentInChildren<TextMeshProUGUI>();
         _text.text = "";
     }
 
@@ -32,8 +32,14 @@ public class DialogueText : MonoBehaviour
     {
         if (_typeCoroutine != null)
             StopCoroutine(_typeCoroutine);
+        gameObject.SetActive(true);
         _typeCoroutine = TypeText(line);
         StartCoroutine(_typeCoroutine);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     private IEnumerator TypeText(string line)
