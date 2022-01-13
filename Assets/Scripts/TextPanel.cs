@@ -8,12 +8,17 @@ using UnityEngine.UI;
 ///     This is a UI class and should not contain any dialogue logic.
 /// </summary>
 [RequireComponent(typeof(Image))]
-public class DialoguePanel : MonoBehaviour
+public class TextPanel : MonoBehaviour
 {
     /// <summary>
     ///     The number of seconds between each character being displayed.
     /// </summary>
     [SerializeField] private float textDelay;
+
+    /// <summary>
+    ///     The number of lines of text that can be displayed in one text panel.
+    /// </summary>
+    [HideInInspector] public int linesPerPanel;
 
     private TextMeshProUGUI _text;
 

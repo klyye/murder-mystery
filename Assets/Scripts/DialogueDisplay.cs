@@ -6,11 +6,11 @@ using Ink.Runtime;
 /// </summary>
 public class DialogueDisplay
 {
-    private readonly DialogueButtons _buttons;
+    private readonly ButtonLayout _buttons;
     private readonly Story _story;
-    private readonly DialoguePanel panel;
+    private readonly TextPanel panel;
 
-    public DialogueDisplay(DialogueButtons buttons, DialoguePanel panel, Story story)
+    public DialogueDisplay(ButtonLayout buttons, TextPanel panel, Story story)
     {
         this.panel = panel;
         _buttons = buttons;
@@ -18,6 +18,11 @@ public class DialogueDisplay
         DisplayNextLine();
     }
 
+    /// <summary>
+    ///     Advances the story to the choice that is selected.
+    ///     Should be triggered upon a choice button being pressed.
+    /// </summary>
+    /// <param name="choice">The choice that is selected.</param>
     public void OnChoiceSelected(Choice choice)
     {
         _story.ChooseChoiceIndex(choice.index);
@@ -25,6 +30,9 @@ public class DialogueDisplay
     }
 
 
+    /// <summary>
+    ///     Signals the UI to display the next line of the story.
+    /// </summary>
     public void DisplayNextLine()
     {
         if (_story == null || !_story.canContinue && _story.currentChoices.Count == 0)
@@ -35,7 +43,8 @@ public class DialogueDisplay
 
         _buttons.ClearButtons();
         var output = _story.canContinue ? _story.Continue() : _story.currentText;
-        foreach (var choice in _story.currentChoices) _buttons.CreateButton(this, choice);
+        foreach (var choice in _story.currentChoices)
+            _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
         panel.DisplayLine(output);
     }
 }
