@@ -1,3 +1,4 @@
+using System;
 using Ink.Runtime;
 
 /// <summary>
@@ -9,14 +10,14 @@ using Ink.Runtime;
 public class DialogueDisplay
 {
     private readonly ButtonLayout _buttons;
+    private readonly Dialogue _dialogue;
     private readonly TextPanel _panel;
-    private readonly Story _story;
 
-    public DialogueDisplay(ButtonLayout buttons, TextPanel panel, Story story)
+    public DialogueDisplay(ButtonLayout buttons, TextPanel panel, Dialogue dialogue)
     {
         _panel = panel;
         _buttons = buttons;
-        _story = story;
+        _dialogue = dialogue;
         DisplayNextLine();
     }
 
@@ -27,7 +28,7 @@ public class DialogueDisplay
     /// <param name="choice">The choice that is selected.</param>
     private void OnChoiceSelected(Choice choice)
     {
-        _story.ChooseChoiceIndex(choice.index);
+        _dialogue.ChooseChoice(choice);
         DisplayNextLine();
     }
 
@@ -37,19 +38,20 @@ public class DialogueDisplay
     /// </summary>
     public void DisplayNextLine()
     {
-        if (_story == null || !_story.canContinue && _story.currentChoices.Count == 0)
+        if (_dialogue == null || !_dialogue.canContinue && _dialogue.currentChoices.Count == 0)
         {
             _panel.gameObject.SetActive(false);
             return;
         }
 
         _buttons.ClearButtons();
-        var output = _story.canContinue && !_panel.currentlyTyping ? _story.Continue() : _story.currentText;
-        foreach (var choice in _story.currentChoices)
+        var output = _dialogue.canContinue && !_panel.currentlyTyping ? _dialogue.Continue() : _dialogue.currentText;
+        foreach (var choice in _dialogue.currentChoices)
             _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
         if (_panel.currentlyTyping)
             _panel.textDelay = 0;
         else
             _panel.DisplayLine(output);
+        Console.WriteLine(_dialogue.speaker);
     }
 }

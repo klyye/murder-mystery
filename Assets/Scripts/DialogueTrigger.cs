@@ -1,4 +1,3 @@
-using Ink.Runtime;
 using UnityEngine;
 
 /// <summary>
@@ -17,13 +16,13 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     [SerializeField] private KeyCode advanceKey;
 
-    private Story _story;
+    private Dialogue _dialogue;
 
     private DialogueDisplay display;
 
     private void Awake()
     {
-        _story = new Story(inkJSONAsset.text);
+        _dialogue = new Dialogue(inkJSONAsset);
     }
 
     private void Start()
@@ -32,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
          they can find in the scene. */
         var text = FindObjectOfType<TextPanel>();
         var buttons = FindObjectOfType<ButtonLayout>();
-        display = new DialogueDisplay(buttons, text, _story);
+        display = new DialogueDisplay(buttons, text, _dialogue);
     }
 
     private void Update()

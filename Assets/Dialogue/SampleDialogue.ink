@@ -1,37 +1,64 @@
-﻿August 3, 9:47AM
+﻿---:
+August 3, 9:47AM
 District Court
 Defendant Lobby No. 2
+;;;
 
+Phoenix Wright:
 Boy am I nervous!
+;;;
 
+Mia Fey:
 Wright!
+;;;
 +[Greet Mia]
     -> mia
 +[Go to trial]
     -> trial
 
 == mia
+Phoenix Wright:
 Oh, h-hiya, Chief. Whew, I'm glad I made it on time.
+;;;
 
-// dialogue is displayed line by line. any line break makes a new box of dialogue
-Well, I have to say Phoenix, I'm impressed! Not everyone takes on a murder trial right off the bat like this. It says a  lot about you ...and your client as well.
+Mia Fey:
+Well, I have to say Phoenix, I'm impressed! Not everyone takes on a murder trial right off the bat like this. 
+It says a  lot about you ...and your client as well.
+;;;
 
+Phoenix Wright:
 Um... thanks. Actually, it's because I owe him a favor.
+;;;
 
+Mia Fey:
 A favor? You mean, you knew the defendant before this case?
+;;;
 
+Phoenix Wright:
 Yes. Actually, I kind of owe my current job to him. He's one of the reasons I became an attorney.
+;;;
 
+Mia Fey:
 Well, that's news to me!
+;;;
 
+Phoenix Wright:
 I want to help him out any way I can! I just... really want to help him. I owe him that much.
+;;;
 
+???:
 It's over! My life, everything, it's all over!
+;;;
 
+---:
 ...
+;;;
 
+Mia Fey:
 Isn't that your client screaming over there?
+;;;
 
+Phoenix Wright:
 Yeah... that's him.
 +[Greet Larry]
     -> larry
@@ -39,7 +66,9 @@ Yeah... that's him.
     -> trial
 
 == larry
+Larry Butz:
 Death! Despair! Ohhhhh! I'm gonna do it, I'm gonna die!!!
+;;;
 
 It sounds like he wants to die...
 
