@@ -33,7 +33,6 @@ public class Dialogue
     public string Continue()
     {
         currentText = speaker = "";
-        // TODO CURRENTLY BUGGED
         while (!currentText.EndsWith(LINE_ENDER)) currentText += _story.Continue().TrimStart();
 
         var speakerIdx = currentText.IndexOf(SPEAKER_PROMPT);

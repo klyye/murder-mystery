@@ -20,19 +20,20 @@ public class TextPanel : MonoBehaviour
     /// </summary>
     [SerializeField] private float defaultTextDelay;
 
+    private TextMeshProUGUI _text;
+
+    private IEnumerator _typingCoroutine;
+
     /// <summary>
     ///     Whether or text is still being typed character by character onto the screen.
     /// </summary>
-    [HideInInspector] public bool currentlyTyping;
-
-    private TextMeshProUGUI _text;
+    public bool currentlyTyping => _typingCoroutine != null;
 
     private void Awake()
     {
         _text = GetComponentInChildren<TextMeshProUGUI>();
         textDelay = defaultTextDelay;
         _text.text = "";
-        currentlyTyping = false;
     }
 
     /// <summary>
@@ -41,23 +42,29 @@ public class TextPanel : MonoBehaviour
     /// <param name="line">The string to display.</param>
     public void DisplayLine(string line)
     {
-        StartCoroutine(TypeText(line));
+        gameObject.SetActive(true);
+        if (_text.text.Equals(line) || currentlyTyping)
+        {
+            _text.text = line;
+            if (!currentlyTyping) return;
+            StopCoroutine(_typingCoroutine);
+            _typingCoroutine = null;
+        }
+        else
+        {
+            _typingCoroutine = TypeText(line);
+            StartCoroutine(_typingCoroutine);
+        }
     }
 
     private IEnumerator TypeText(string line)
     {
-        if (_text.text.Equals(line)) yield break; // prevents flickering
-
-        currentlyTyping = true;
         _text.text = "";
         textDelay = defaultTextDelay;
-        gameObject.SetActive(true);
         foreach (var c in line)
         {
             _text.text += c;
             yield return new WaitForSeconds(textDelay);
         }
-
-        currentlyTyping = false;
     }
 }

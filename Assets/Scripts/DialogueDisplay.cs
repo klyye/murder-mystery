@@ -17,7 +17,6 @@ public class DialogueDisplay
         _buttons = buttons;
         _dialogue = dialogue;
         _speakerPanel = speakerPanel;
-        DisplayNextLine();
     }
 
     /// <summary>
@@ -49,10 +48,8 @@ public class DialogueDisplay
             : _dialogue.currentText;
         foreach (var choice in _dialogue.currentChoices)
             _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
-        if (_dialoguePanel.currentlyTyping)
-            _dialoguePanel.textDelay = 0;
-        else
-            _dialoguePanel.DisplayLine(output);
+
+        _dialoguePanel.DisplayLine(output);
         _speakerPanel.DisplayLine(_dialogue.speaker);
     }
 }
