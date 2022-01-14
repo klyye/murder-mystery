@@ -1,4 +1,4 @@
-﻿---:
+﻿:
 August 3, 9:47AM
 District Court
 Defendant Lobby No. 2
@@ -50,7 +50,7 @@ I want to help him out any way I can! I just... really want to help him. I owe h
 It's over! My life, everything, it's all over!
 ;;;
 
----:
+:
 ...
 ;;;
 
@@ -70,25 +70,49 @@ Larry Butz:
 Death! Despair! Ohhhhh! I'm gonna do it, I'm gonna die!!!
 ;;;
 
+Mia Fey:
 It sounds like he wants to die...
+;;;
 
+Phoenix Wright:
 Um, yeah. *sigh*
+;;;
 
+Larry Butz:
 Nick!!!
+;;;
 
-Hey. Hey there, Larry.
+Phoenix Wright:
+Hey. 
+;;;
 
+Phoenix Wright:
+Hey there, Larry.
+;;;
+
+Larry Butz:
 Dude, I'm so guilty!! Tell them I'm guilty!!! Gimme the death sentence! I ain't afraid to die!
+;;;
 
+Phoenix Wright:
 What!? What's wrong, Larry?
+;;;
 
-Oh, it's all over... I... I'm finished. Finished! I can't live in a world without her! I can't! Who.. . who took her away from me, Nick? Who did this!? Aww, Nick, ya gotta tell me! Who took my baby away!?
+Larry Butz:
+Oh, it's all over... I... I'm finished. Finished! I can't live in a world without her! I can't! 
+;;;
 
+Larry Butz:
+Who.. . who took her away from me, Nick? Who did this!? Aww, Nick, ya gotta tell me! Who took my baby away!?
+;;;
+
+Phoenix Wright:
 (Hmm... The person responsible for your girlfriend's death? The newspapers say it was you...)
+;;;
 -> trial
 
-My name is Phoenix Wright.
-
 == trial
+Phoenix Wright:
 Welp, time to head to the courtroom. I wonder what's in store for me?
+;;;
 -> END

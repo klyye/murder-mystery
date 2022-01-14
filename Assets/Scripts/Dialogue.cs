@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Dialogue
 {
-    private const string LINE_ENDER = ";;;";
+    private const string LINE_ENDER = ";;;\n";
 
     private const char SPEAKER_PROMPT = ':';
     private readonly Story _story;
@@ -32,13 +32,13 @@ public class Dialogue
 
     public string Continue()
     {
-        currentText = "";
+        currentText = speaker = "";
         // TODO CURRENTLY BUGGED
-        while (!currentText.EndsWith(LINE_ENDER)) currentText += _story.Continue();
+        while (!currentText.EndsWith(LINE_ENDER)) currentText += _story.Continue().TrimStart();
 
-        var speakerIdx = speaker.IndexOf(SPEAKER_PROMPT);
+        var speakerIdx = currentText.IndexOf(SPEAKER_PROMPT);
         speaker = currentText[..speakerIdx];
-        currentText = currentText[(speakerIdx + 1)..^3];
+        currentText = currentText[(speakerIdx + 2)..^4];
         return currentText;
     }
 }
