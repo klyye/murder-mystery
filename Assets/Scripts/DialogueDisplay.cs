@@ -1,23 +1,22 @@
-using System;
 using Ink.Runtime;
 
 /// <summary>
 ///     Sends lines of data to be displayed by DialogueText and DialogueButtons when prompted by DialogueTrigger.
 ///     It is the job of this class to interface with the UI elements.
-///     TODO: detect which character is talking. should probably make a new wrapper class for Story
-///     TODO: https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md#engine-usage-and-philosophy
 /// </summary>
 public class DialogueDisplay
 {
     private readonly ButtonLayout _buttons;
     private readonly Dialogue _dialogue;
-    private readonly TextPanel _panel;
+    private readonly TextPanel _dialoguePanel;
+    private readonly TextPanel _speakerPanel;
 
-    public DialogueDisplay(ButtonLayout buttons, TextPanel panel, Dialogue dialogue)
+    public DialogueDisplay(ButtonLayout buttons, TextPanel dialoguePanel, TextPanel speakerPanel, Dialogue dialogue)
     {
-        _panel = panel;
+        _dialoguePanel = dialoguePanel;
         _buttons = buttons;
         _dialogue = dialogue;
+        _speakerPanel = speakerPanel;
         DisplayNextLine();
     }
 
@@ -40,19 +39,20 @@ public class DialogueDisplay
     {
         if (_dialogue == null || !_dialogue.canContinue && _dialogue.currentChoices.Count == 0)
         {
-            _panel.gameObject.SetActive(false);
+            _dialoguePanel.gameObject.SetActive(false);
             return;
         }
 
         _buttons.ClearButtons();
-        var output = _dialogue.canContinue && !_panel.currentlyTyping ? _dialogue.Continue() : _dialogue.currentText;
+        var output = _dialogue.canContinue && !_dialoguePanel.currentlyTyping
+            ? _dialogue.Continue()
+            : _dialogue.currentText;
         foreach (var choice in _dialogue.currentChoices)
             _buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
-        if (_panel.currentlyTyping)
-            _panel.textDelay = 0;
+        if (_dialoguePanel.currentlyTyping)
+            _dialoguePanel.textDelay = 0;
         else
-            _panel.DisplayLine(output);
-        Console.WriteLine(_dialogue.speaker);
-        // TODO: display speaker
+            _dialoguePanel.DisplayLine(output);
+        _speakerPanel.DisplayLine(_dialogue.speaker);
     }
 }

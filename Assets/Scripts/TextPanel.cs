@@ -46,6 +46,8 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator TypeText(string line)
     {
+        if (_text.text.Equals(line)) yield break; // prevents flickering
+
         currentlyTyping = true;
         _text.text = "";
         textDelay = defaultTextDelay;

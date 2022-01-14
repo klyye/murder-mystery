@@ -16,6 +16,11 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     [SerializeField] private KeyCode advanceKey;
 
+    // TODO: Hooking up UI elements to every single NPC seems tiring. Maybe move this somewhere else?
+    [SerializeField] private TextPanel dialoguePanel;
+    [SerializeField] private TextPanel speakerPanel;
+    [SerializeField] private ButtonLayout choiceButtons;
+
     private Dialogue _dialogue;
 
     private DialogueDisplay display;
@@ -23,15 +28,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         _dialogue = new Dialogue(inkJSONAsset);
-    }
-
-    private void Start()
-    {
-        /* Replace FindObjectOfType if you want triggers to link to specific UI elements rather than just the first one
-         they can find in the scene. */
-        var text = FindObjectOfType<TextPanel>();
-        var buttons = FindObjectOfType<ButtonLayout>();
-        display = new DialogueDisplay(buttons, text, _dialogue);
+        display = new DialogueDisplay(choiceButtons, dialoguePanel, speakerPanel, _dialogue);
     }
 
     private void Update()
