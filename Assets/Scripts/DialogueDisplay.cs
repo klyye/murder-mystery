@@ -19,6 +19,8 @@ public class DialogueDisplay
         _speakerPanel = speakerPanel;
     }
 
+    public bool dialogueActive => _dialoguePanel.isActiveAndEnabled;
+
     /// <summary>
     ///     Advances the story to the choice that is selected.
     ///     Should be triggered upon a choice button being pressed.

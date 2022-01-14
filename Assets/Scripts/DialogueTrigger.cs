@@ -33,7 +33,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(advanceKey)) display.DisplayNextLine();
+        if (Input.GetKeyDown(advanceKey) && display.dialogueActive) display.DisplayNextLine();
     }
 
     private void OnMouseDown()
