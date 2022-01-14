@@ -53,5 +53,6 @@ public class DialogueDisplay
         else
             _panel.DisplayLine(output);
         Console.WriteLine(_dialogue.speaker);
+        // TODO: display speaker
     }
 }
