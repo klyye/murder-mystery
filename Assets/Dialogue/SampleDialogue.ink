@@ -60,6 +60,7 @@ Isn't that your client screaming over there?
 
 Phoenix Wright:
 Yeah... that's him.
+;;;
 +[Greet Larry]
     -> larry
 +[Go to trial]
