@@ -16,19 +16,12 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     [SerializeField] private KeyCode advanceKey;
 
-    // TODO: Hooking up UI elements to every single NPC seems tiring. Maybe move this somewhere else?
-    [SerializeField] private TextPanel dialoguePanel;
-    [SerializeField] private TextPanel speakerPanel;
-    [SerializeField] private ButtonLayout choiceButtons;
-
-    private Dialogue _dialogue;
-
     private DialogueDisplay display;
 
     private void Awake()
     {
-        _dialogue = new Dialogue(inkJSONAsset);
-        display = new DialogueDisplay(choiceButtons, dialoguePanel, speakerPanel, _dialogue);
+        display = FindObjectOfType<DialogueDisplay>();
+        display.dialogue = new Dialogue(inkJSONAsset);
     }
 
     private void Update()
