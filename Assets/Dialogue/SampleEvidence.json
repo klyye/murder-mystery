@@ -1,0 +1,34 @@
+﻿{
+  "inkVersion": 20,
+  "root": [
+    [
+      "^Protagonist Name:",
+      "\n",
+      "^A hexagon!",
+      "\n",
+      "^Surely this will lead to a big breakthrough in the investigation!",
+      "\n",
+      "^;;;",
+      "\n",
+      "^:",
+      "\n",
+      "^Hexagon added to evidence.",
+      "\n",
+      "^;;;",
+      "\n",
+      [
+        "done",
+        {
+          "#f": 5,
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "#f": 1
+    }
+  ],
+  "listDefs": {}
+}

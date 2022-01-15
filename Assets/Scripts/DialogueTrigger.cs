@@ -16,13 +16,7 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     [SerializeField] private KeyCode advanceKey;
 
-    private DialogueDisplay display;
-
-    private void Awake()
-    {
-        display = FindObjectOfType<DialogueDisplay>();
-        display.dialogue = new Dialogue(inkJSONAsset);
-    }
+    [SerializeField] private DialogueDisplay display;
 
     private void Update()
     {
@@ -31,6 +25,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (display.dialogueActive) return;
+        display.dialogue = new Dialogue(inkJSONAsset);
         display.DisplayNextLine();
     }
 }

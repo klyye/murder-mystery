@@ -1,19 +1,19 @@
 using Ink.Runtime;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
 ///     Sends lines of data to be displayed by DialogueText and DialogueButtons when prompted by DialogueTrigger.
-///     It is the job of this class to interface with the UI elements.
+///     It is the job of this class to interface with the UI elements. 
 /// </summary>
 public class DialogueDisplay : MonoBehaviour
 {
     [SerializeField] private ButtonLayout buttons;
-    [SerializeField] private TextPanel dialoguePanel;
-    [SerializeField] private TextPanel speakerPanel;
+    [SerializeField] private TypingTextBox dialogueBox;
+    [SerializeField] private TextMeshProUGUI speakerText;
     public Dialogue dialogue;
 
-
-    public bool dialogueActive => dialoguePanel.isActiveAndEnabled;
+    public bool dialogueActive => dialogueBox.isActiveAndEnabled;
 
     /// <summary>
     ///     Advances the story to the choice that is selected.
@@ -31,20 +31,21 @@ public class DialogueDisplay : MonoBehaviour
     /// </summary>
     public void DisplayNextLine()
     {
-        if (dialogue == null || !dialogue.canContinue && dialogue.currentChoices.Count == 0)
+        if (dialogue == null || !dialogue.canContinue && !dialogueBox.currentlyTyping &&
+            dialogue.currentChoices.Count == 0)
         {
-            dialoguePanel.gameObject.SetActive(false);
+            dialogueBox.gameObject.SetActive(false);
             return;
         }
 
         buttons.ClearButtons();
-        var output = dialogue.canContinue && !dialoguePanel.currentlyTyping
+        var output = dialogue.canContinue && !dialogueBox.currentlyTyping
             ? dialogue.Continue()
             : dialogue.currentText;
         foreach (var choice in dialogue.currentChoices)
             buttons.CreateButton(delegate { OnChoiceSelected(choice); }, choice.text);
 
-        dialoguePanel.DisplayLine(output);
-        speakerPanel.DisplayLine(dialogue.speaker);
+        dialogueBox.DisplayLine(output);
+        speakerText.text = dialogue.speaker;
     }
 }

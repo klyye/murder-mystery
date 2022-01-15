@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-///     Displays dialogue line by line.
+///     Displays strings with a character by character "typing" effect.
 ///     This is a UI class and should not contain any dialogue logic.
 /// </summary>
 [RequireComponent(typeof(Image))]
-public class TextPanel : MonoBehaviour
+public class TypingTextBox : MonoBehaviour
 {
     /// <summary>
     ///     The number of seconds between each character being displayed.
@@ -34,6 +34,7 @@ public class TextPanel : MonoBehaviour
         _text = GetComponentInChildren<TextMeshProUGUI>();
         textDelay = defaultTextDelay;
         _text.text = "";
+        gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -42,17 +43,16 @@ public class TextPanel : MonoBehaviour
     /// <param name="line">The string to display.</param>
     public void DisplayLine(string line)
     {
-        gameObject.SetActive(true);
-        if (_text.text.Equals(line) || currentlyTyping)
+        if (currentlyTyping)
         {
-            _text.text = line;
-            if (!currentlyTyping) return;
             StopCoroutine(_typingCoroutine);
             _typingCoroutine = null;
+            _text.text = line;
         }
         else
         {
             _typingCoroutine = TypeText(line);
+            gameObject.SetActive(true);
             StartCoroutine(_typingCoroutine);
         }
     }
@@ -66,5 +66,7 @@ public class TextPanel : MonoBehaviour
             _text.text += c;
             yield return new WaitForSeconds(textDelay);
         }
+
+        _typingCoroutine = null;
     }
 }
